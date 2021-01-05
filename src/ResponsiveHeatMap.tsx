@@ -94,7 +94,7 @@ export const MyResponsiveHeatMap = ({ imdbID }: any) => {
 
     if (isDataLoaded) {
         return (
-            <div style={{height: '70vw', textAlign: 'center'}}>
+            <div style={{height: '90vh', textAlign: 'center'}}>
             <ResponsiveHeatMapCanvas
                 data={heatmapData}
                 //@ts-ignore
