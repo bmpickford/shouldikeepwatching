@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
-import { MyResponsiveHeatMap } from './ResponsiveHeatMap';
+import { MyResponsiveHeatMap } from '../components/ResponsiveHeatMap';
 import Autosuggest, {ChangeEvent, SuggestionSelectedEventData} from 'react-autosuggest';
-
-import './App.css';
-import { theme } from './autosuggestTheme';
+import { theme } from '../components/autosuggestTheme';
 
 interface ISuggestion {
   name: string;
   id: string;
 }
-
-// const originalSuggestions = [{ "Title": "Friends" },{ "Title": "Foster's Home for Imaginary Friends" },{ "Title": "Friends from College" },{ "Title": "Happy Tree Friends" },{ "Title": "Garfield and Friends" },{ "Title": "Friends with Better Lives" },{ "Title": "Barney & Friends" },{ "Title": "Thomas the Tank Engine & Friends" },{ "Title": "Friends with Benefits" },{ "Title": "Spider-Man and His Amazing Friends"  }] as ISuggestion[];
 
 const App = () => {
   const [suggestions, setSuggestions] = useState([]);
