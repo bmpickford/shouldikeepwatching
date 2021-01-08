@@ -62,6 +62,7 @@ const App = () => {
   return (
     <div className="App">
       <div className="search-label">Search for the show you're watching</div>
+      <div className="search-sublabel">And we'll show you a nice heatmap to show you how the ratings progress</div>
       <Autosuggest
         suggestions={suggestions}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}

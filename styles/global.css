@@ -16,6 +16,13 @@ body {
   padding-top: 60pt;
 }
 
+.search-sublabel {
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  padding-top: 20pt;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
