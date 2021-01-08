@@ -1,5 +1,8 @@
 import { ResponsiveHeatMapCanvas, HeatMapDatum } from '@nivo/heatmap'
 import { useEffect, useState } from 'react';
+import Loader from 'react-loader-spinner';
+
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 interface IShow {
     seasons: ISeason[];
@@ -24,8 +27,6 @@ export const MyResponsiveHeatMap = ({ imdbID }: any) => {
         const numEpisodesForEachSeason = data.seasons.map((val) => val.episodes.length);
         const maxEpisodes = numEpisodesForEachSeason.sort((a, b) => b - a)[0];
 
-        console.log(data)
-
         const heatmapData = data.seasons.map((season) => {
             const seasonInfo = {
                 season: season.season,
@@ -41,7 +42,6 @@ export const MyResponsiveHeatMap = ({ imdbID }: any) => {
             }
             return seasonInfo;
         });
-        console.log(heatmapData);
         return heatmapData;
     }
 
@@ -66,6 +66,7 @@ export const MyResponsiveHeatMap = ({ imdbID }: any) => {
 
     useEffect(() => {
         const getShowData = async (id: string) => {
+            setIsDataLoaded(false);
             
             const response = await fetch(`/api/shows/${id}`);
             if (!response.ok) {
@@ -91,6 +92,18 @@ export const MyResponsiveHeatMap = ({ imdbID }: any) => {
         }
         getShowData(imdbID)
     }, [imdbID]);
+
+    if (imdbID !== null && !isDataLoaded) {
+        return (
+            <div style={{textAlign: 'center', marginTop: '50pt'}}>
+                <Loader
+                    type='Rings'
+                    color='#00BFFF'
+                    height={100}
+                    width={100} />
+            </div>
+        );
+    }
 
     if (isDataLoaded) {
         return (
