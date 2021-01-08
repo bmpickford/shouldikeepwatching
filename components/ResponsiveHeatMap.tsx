@@ -47,7 +47,7 @@ export const MyResponsiveHeatMap = ({ imdbID }: any) => {
 
     const getSeasonData = async (id: string, season: number): Promise<ISeason> => {
         
-        const response = await fetch(`https://api.themoviedb.org/3/tv/${id}/season/${season}?api_key=${process.env.REACT_APP_API_KEY}`);
+        const response = await fetch(`/api/shows/${id}/seasons/${season}`);
         const responseData = await response.json();
 
         if (!response.ok || !responseData) {
@@ -67,7 +67,7 @@ export const MyResponsiveHeatMap = ({ imdbID }: any) => {
     useEffect(() => {
         const getShowData = async (id: string) => {
             
-            const response = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_API_KEY}`);
+            const response = await fetch(`/api/shows/${id}`);
             if (!response.ok) {
                 console.error('Error response from API: ', response);
                 return;

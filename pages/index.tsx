@@ -18,7 +18,7 @@ const App = () => {
       return;
     }
 
-    const response = await fetch(`https://api.themoviedb.org/3/search/tv?api_key=${process.env.REACT_APP_API_KEY}&query=${e.value}`);
+    const response = await fetch(`/api/shows/search?q=${e.value}`);
     if (!response.ok) {
       setSuggestions([]);
       return;
